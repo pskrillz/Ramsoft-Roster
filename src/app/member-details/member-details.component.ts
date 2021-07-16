@@ -4,7 +4,7 @@ import { AppService } from '../app.service';
 import { Router } from '@angular/router';
 
 // This interface may be useful in the times ahead...
-interface Member {
+export interface Member {
   firstName: string;
   lastName: string;
   jobTitle: string;
@@ -23,16 +23,62 @@ export class MemberDetailsComponent implements OnInit, OnChanges {
   submitted = false;
   alertType: String;
   alertMessage: String;
-  teams = [];
+  teams: any [];
 
-  constructor(private fb: FormBuilder, private appService: AppService, private router: Router) {}
+  constructor(
+    private fb: FormBuilder, 
+    private appService: AppService, 
+    private router: Router) {
+      this.memberForm = this.fb.group({
+        firstName: [
+          '',
+          Validators.compose([
+            Validators.required,
+          ]),
+        ],
+        lastName: [
+          '',
+          Validators.compose([
+            Validators.required,
+          ]),
+        ],
+        jobTitle: [
+          '',
+          Validators.compose([
+            Validators.required,
+          ]),
+        ],
+        teamName: [
+          '',
+          Validators.compose([
+            Validators.required,
+          ]),
+        ],
+        activeStatus: [
+          '',
+          Validators.compose([
+            Validators.required,
+          ]),
+        ],
+      })
+    }
 
-  ngOnInit() {}
 
-  ngOnChanges() {}
+  ngOnInit() {
+    this.appService.getTeams()
+      .subscribe(res => {
+        this.teams = res;
+      });
+  }
+
+  ngOnChanges() {
+  }
 
   // TODO: Add member to members
   onSubmit(form: FormGroup) {
     this.memberModel = form.value;
+    this.appService.addMember(this.memberModel)
+    .subscribe(res => console.log(res, "hi"))
+
   }
 }

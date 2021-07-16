@@ -23,9 +23,17 @@ export class AppService {
     this.username = name;
   }
 
-  addMember(memberForm) {}
+  addMember(memberForm) {
+    return this.http
+    .post(`${this.api}/addMember`, memberForm)
+    .pipe(catchError(this.handleError))
+  }
 
-  getTeams() {}
+  getTeams() {
+    return this.http
+    .get(`${this.api}/teams`)
+    .pipe(catchError(this.handleError));
+  }
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
