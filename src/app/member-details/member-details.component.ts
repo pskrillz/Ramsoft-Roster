@@ -79,7 +79,9 @@ export class MemberDetailsComponent implements OnInit, OnChanges {
     this.memberModel = form.value;
     console.log(this.memberModel)
     console.log("testing on submit")
-    this.appService.addMember(this.memberModel)
+    this.appService.addMember(this.memberModel).subscribe(res => {
+      console.log(res)
+    })
     this.goBackToSummary()
 
   }

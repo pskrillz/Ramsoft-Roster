@@ -65,14 +65,46 @@ app.get('/api/teams', (req, res) => {
 //   });
 // });
 
-app.post('/members', function(request, response) {
-  console.log("server fired")
-  request.post('http://localhost:3000/members', (err, response, body) => {
-    if (response.statusCode <= 500) {
-      req.send(body);
+// first try
+// app.post('/members', function(request, response) {
+//   console.log("server fired")
+//   request.post('http://localhost:3000/members', (err, response, body) => {
+//     if (response.statusCode <= 500) {
+//       req.send(body);
+//     }
+//   });
+// });
+
+// Add Member
+app.post('/api/addMember', (req, res) => {
+    request.post('http://localhost:3000/members', { json: req.body }, (err, response, body) => {
+      if (err){
+        console.log(err)
+        alert("didnt work")
+        return
+      } else if (response.statusCode <= 500) {
+        res.send(body);
+      }
     }
-  });
-});
+    );
+  } 
+);
+
+//Delete Member by Id
+app.delete('/api/deleteMember/:id', (req, res) => {
+  request.delete(`http://localhost:3000/members/${req.params.id}`, (err, response, body) => {
+    if (err){
+      console.log(err)
+      alert(" delete didnt work")
+      return
+    } else if (response.statusCode <= 500) {
+      res.send(body);
+    }
+  }
+  );
+} 
+);
+
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/softrams-racing/index.html'));

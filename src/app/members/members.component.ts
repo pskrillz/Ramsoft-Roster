@@ -22,5 +22,7 @@ export class MembersComponent implements OnInit {
 
   editMemberByID(id: number) {}
 
-  deleteMemberById(id: number) {}
+  deleteMemberById(id: number) {
+    this.appService.deleteMember(id).subscribe(res => console.log(res))
+  }
 }
