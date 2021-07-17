@@ -23,46 +23,6 @@
       "jobTitle": "Reserve Driver",
       "team": "Formula 1 - Car 77",
       "status": "Inactive"
-    },
-    {
-      "firstName": "asdf",
-      "lastName": "asdf",
-      "jobTitle": "asdf",
-      "teamName": "Deutsche Tourenwagen Masters - Car 117",
-      "activeStatus": "Active",
-      "id": 4
-    },
-    {
-      "firstName": "asdf PPPP",
-      "lastName": "asdf",
-      "jobTitle": "asdf",
-      "teamName": "Formula 2 - Car 63",
-      "activeStatus": "Active",
-      "id": 5
-    },
-    {
-      "firstName": "",
-      "lastName": "",
-      "jobTitle": "",
-      "teamName": "",
-      "activeStatus": "",
-      "id": 6
-    },
-    {
-      "firstName": "",
-      "lastName": "",
-      "jobTitle": "",
-      "teamName": "",
-      "activeStatus": "",
-      "id": 7
-    },
-    {
-      "firstName": "",
-      "lastName": "",
-      "jobTitle": "",
-      "teamName": "",
-      "activeStatus": "",
-      "id": 8
     }
   ],
   "teams": [

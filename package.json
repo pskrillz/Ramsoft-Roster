@@ -9,10 +9,10 @@
     "e2e": "ng e2e",
     "start": "npm-run-all -p build server db",
     "start-dev": "npm-run-all -p client server-supervisor db",
-    "db": "json-server db.json",
+    "db": "json-server db.json --watch",
     "client": "ng serve",
     "server": "nodemon server.js",
-    "server-supervisor" : "supervisor server.js",
+    "server-supervisor" : "supervisor --watch server.js",
     "preinstall": "npx npm-force-resolutions"
   },
   "private": true,
