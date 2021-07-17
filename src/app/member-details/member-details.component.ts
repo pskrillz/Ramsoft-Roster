@@ -80,7 +80,12 @@ export class MemberDetailsComponent implements OnInit, OnChanges {
     console.log(this.memberModel)
     console.log("testing on submit")
     this.appService.addMember(this.memberModel)
+    this.goBackToSummary()
 
+  }
+
+  goBackToSummary(){
+    this.router.navigate(['/members']);
   }
 
 

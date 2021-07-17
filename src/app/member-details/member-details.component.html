@@ -62,8 +62,11 @@
         </div>
       </div>
     </div>
-    <!--Disable if form is invalid-->
-    <button type="submit" class="btn btn-primary pull-right">
+    <!--Disable if form is invalid TODO-->
+    <button class="btn btn-warning" (click)="goBackToSummary()"> 
+      Back
+    </button>
+    <button type="submit" class="btn btn-primary pull-right" >
       Save Member
     </button>
   </form>
