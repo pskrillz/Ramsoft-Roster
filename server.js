@@ -53,15 +53,23 @@ app.get('/api/teams', (req, res) => {
 
 // Submit Form!
 // app.post('/api/addMember', (req, res) => {
-  
-
 // });
 
-app.post('/api/addMember', function(request, response) {
+// app.post('/api/members', function(request, response) {
+//   console.log("hi")
+//   request('http://localhost:3000/addMember', (err, response, body) => {
+//     if (response.statusCode <= 500) {
+//       req.send(body);
+     
+//     }
+//   });
+// });
+
+app.post('/members', function(request, response) {
+  console.log("server fired")
   request.post('http://localhost:3000/members', (err, response, body) => {
     if (response.statusCode <= 500) {
       req.send(body);
-      console.log("hi")
     }
   });
 });

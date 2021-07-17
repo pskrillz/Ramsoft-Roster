@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Member } from '../app/member-details/member-details.component'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
   api = 'http://localhost:8000/api';
+  home = "http://localhost:3000"
   username: string;
 
   constructor(private http: HttpClient) {}
@@ -23,11 +25,25 @@ export class AppService {
     this.username = name;
   }
 
-  addMember(memberForm) {
+  // addMember(memberForm) {
+  //   console.log("test service")
+  //   return this.http
+  //   .post(`${this.api}/addMember`, memberForm)
+  //   .pipe(catchError(this.handleError))
+  // }
+
+  addMember(memberForm: Member) {
     return this.http
-    .post(`${this.api}/addMember`, memberForm)
-    .pipe(catchError(this.handleError))
+    .post(`${this.home}/members`, memberForm).subscribe(
+      data => {
+        console.log('POST Request is successful ', data);
+      },
+      error => {
+        console.log('Error', error);
+      }
+    );
   }
+
 
   getTeams() {
     return this.http
