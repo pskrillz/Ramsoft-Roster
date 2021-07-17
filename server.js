@@ -35,6 +35,8 @@ app.use(
   })
 );
 
+
+// Get all members
 app.get('/api/members', (req, res) => {
   request('http://localhost:3000/members', (err, response, body) => {
     if (response.statusCode <= 500) {
@@ -43,6 +45,7 @@ app.get('/api/members', (req, res) => {
   });
 });
 
+// Get all teams
 app.get('/api/teams', (req, res) => {
   request('http://localhost:3000/teams', (err, response, body) => {
     if (response.statusCode <= 500) {
@@ -51,28 +54,31 @@ app.get('/api/teams', (req, res) => {
   });
 });
 
-// Submit Form!
-// app.post('/api/addMember', (req, res) => {
-// });
 
-// app.post('/api/members', function(request, response) {
-//   console.log("hi")
-//   request('http://localhost:3000/addMember', (err, response, body) => {
-//     if (response.statusCode <= 500) {
-//       req.send(body);
-     
-//     }
-//   });
-// });
+// Add Member
+app.post('/api/addMember', (req, res) => {
+    request.post('http://localhost:3000/members', { json: req.body }, (err, response, body) => {
+      if (response.statusCode <= 500) {
+        res.send(response);
+      }
+    });
+  });
 
-app.post('/members', function(request, response) {
-  console.log("server fired")
-  request.post('http://localhost:3000/members', (err, response, body) => {
+//Delete Member
+app.delete('/api/deleteMember/:id', (req, res) => {
+  request.delete(`http://localhost:3000/members/${req.params.id}`, (err, response, body) => {
     if (response.statusCode <= 500) {
-      req.send(body);
+      res.send(response)
+      // console.log("great")
+      // TODO: FIXIT: shows 404 in terminal but response comes back 200 with just a empty bracket
+      // better handling of error but at least it shows the code
     }
   });
 });
+
+
+
+
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/softrams-racing/index.html'));

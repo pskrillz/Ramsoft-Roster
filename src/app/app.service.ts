@@ -9,7 +9,7 @@ import { Member } from '../app/member-details/member-details.component'
 })
 export class AppService {
   api = 'http://localhost:8000/api';
-  home = "http://localhost:3000"
+  // home = "http://localhost:3000"
   username: string;
 
   constructor(private http: HttpClient) {}
@@ -25,23 +25,16 @@ export class AppService {
     this.username = name;
   }
 
-  // addMember(memberForm) {
-  //   console.log("test service")
-  //   return this.http
-  //   .post(`${this.api}/addMember`, memberForm)
-  //   .pipe(catchError(this.handleError))
-  // }
-
-  addMember(memberForm: Member) {
+  addMember(memberForm: Member){
     return this.http
-    .post(`${this.home}/members`, memberForm).subscribe(
-      data => {
-        console.log('POST Request is successful ', data);
-      },
-      error => {
-        console.log('Error', error);
-      }
-    );
+    .post(`${this.api}/addMember`, memberForm)
+    .pipe(catchError(this.handleError));
+  }
+
+  deleteMember(id: number){
+    return this.http
+    .delete(`${this.api}/deleteMember/${id}`)
+    .pipe(catchError(this.handleError));
   }
 
 
