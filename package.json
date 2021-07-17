@@ -8,10 +8,11 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "start": "npm-run-all -p build server db",
-    "start-dev": "npm-run-all -p client server db",
+    "start-dev": "npm-run-all -p client server-supervisor db",
     "db": "json-server db.json",
     "client": "ng serve",
     "server": "nodemon server.js",
+    "server-supervisor" : "supervisor server.js",
     "preinstall": "npx npm-force-resolutions"
   },
   "private": true,
@@ -37,6 +38,7 @@
     "popper.js": "^1.14.4",
     "request": "^2.88.0",
     "rxjs": "^6.0.0",
+    "supervisor": "^0.12.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
