@@ -25,20 +25,6 @@ export class AppService {
     this.username = name;
   }
 
-
-// first try
-  // addMember(memberForm: Member) {
-  //   return this.http
-  //   .post(`${this.home}/members`, memberForm).subscribe(
-  //     data => {
-  //       console.log('POST Request is successful ', data);
-  //     },
-  //     error => {
-  //       console.log('Error', error);
-  //     }
-  //   );
-  // }
-
   addMember(memberForm: Member){
     return this.http
     .post(`${this.api}/addMember`, memberForm)
@@ -47,7 +33,7 @@ export class AppService {
 
   deleteMember(id: number){
     return this.http
-    .post(`${this.api}/deleteMember/${id}`, "")
+    .delete(`${this.api}/deleteMember/${id}`)
     .pipe(catchError(this.handleError));
   }
 
