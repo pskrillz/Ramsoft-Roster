@@ -14,7 +14,6 @@ import { MemberDetailsComponent } from './member-details/member-details.componen
 import { MembersComponent } from './members/members.component';
 import { LoginComponent } from './login/login.component';
 
-// We may be missing a route...
 const ROUTES = [
   {
     path: '',

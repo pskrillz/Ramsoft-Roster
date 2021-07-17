@@ -9,8 +9,7 @@
         <th>Job Title</th>
         <th>Racing Team</th>
         <th>Status</th>
-        <th>Delete<th>
-        <th>Edit<th>
+        <th>Manage</th>
       </tr>
     </thead>
     <tbody>
@@ -21,8 +20,10 @@
         <td>{{member?.jobTitle}}</td>
         <td>{{member?.team}}</td>
         <td>{{member?.status}}</td>
-        <td><button>Delete</button></td>
-        <td><button>Edit</button></td>
+        <td>
+          <button class="btn btn-warning">Delete</button>
+          <button class="btn btn-secondary">Edit</button>
+        </td>
       </tr>
     </tbody>
   </table>
