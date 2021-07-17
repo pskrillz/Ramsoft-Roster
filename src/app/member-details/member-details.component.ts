@@ -48,13 +48,13 @@ export class MemberDetailsComponent implements OnInit, OnChanges {
             Validators.required,
           ]),
         ],
-        teamName: [
+        team: [
           '',
           Validators.compose([
             Validators.required,
           ]),
         ],
-        activeStatus: [
+        status: [
           '',
           Validators.compose([
             Validators.required,

@@ -37,7 +37,7 @@
         </div>
         <!--We may have to make a service call to get this list-->
         <select id="team" class="col-md-6 custom-select"
-        formControlName="teamName"
+        formControlName="team"
         >
           <option 
           *ngFor="let team of teams">
@@ -50,12 +50,12 @@
         <div class="row">
           <label id="activeStatus" class="md-check lead">
             <input type="radio" value="Active"  
-            formControlName="activeStatus"/> 
+            formControlName="status"/> 
             Active
           </label>
           <label class="md-check lead">
             <input type="radio" value="Inactive" 
-            formControlName="activeStatus" 
+            formControlName="status" 
             /> 
             Inactive
           </label>
