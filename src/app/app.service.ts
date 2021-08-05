@@ -13,6 +13,7 @@ export class AppService {
   username: string;
 
   currMember;
+  
 
   constructor(private http: HttpClient) {}
 
@@ -25,6 +26,12 @@ export class AppService {
 
   setUsername(name: string): void {
     this.username = name;
+  }
+
+  updateMember(memberForm: Member){
+    return this.http
+    .patch(`${this.api}/updateMember/${memberForm.memberId}`, memberForm)
+    .pipe(catchError(this.handleError));
   }
 
   addMember(memberForm: Member){

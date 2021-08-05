@@ -9,7 +9,9 @@
     <div>
       <div class="row">
         <div class="col-md-6">
+          <label for="firstName">First Name:</label>
           <input
+          
             type="text"
             class="form-control"
             id="firstName"
@@ -19,6 +21,7 @@
           />
         </div>
         <div class="col-md-6">
+          <label for="lastName">Last Name:</label>
           <input
             type="text"
             class="form-control"
@@ -31,6 +34,7 @@
       <br />
       <div class="row">
         <div class="col-md-6">
+          <label for="jobTitle">Job Title:</label>
           <input
             type="text"
             class="form-control"
@@ -39,7 +43,9 @@
             placeholder="Job Title"
           />
         </div>
-        <select id="team" class="col-md-6 custom-select"
+        <div class="col-md-6">
+        <label for="team">Team:</label>
+        <select id="team" class="custom-select"
         formControlName="team">
           <option value="" disabled selected>Select Team</option>
           <option 
@@ -47,7 +53,9 @@
           {{ team.teamName }}
           </option>
         </select>
+        </div>
       </div>
+   
       <br />
       <div class="form-group col-md-6">
         <div class="row">

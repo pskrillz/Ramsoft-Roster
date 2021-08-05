@@ -10,6 +10,7 @@ export interface Member {
   jobTitle: string;
   team: string;
   status: string;
+  memberId: number;
 }
 
 @Component({
@@ -95,9 +96,14 @@ export class MemberDetailsComponent implements OnInit, OnChanges {
     this.memberModel = form.value;
     console.log(this.memberModel)
     console.log("testing on submit")
-    this.appService.addMember(this.memberModel).subscribe(res => {
-      console.log(res)
-    })
+    if(!this.currMember){
+      this.appService.addMember(this.memberModel).subscribe(res => {
+        console.log(res)
+      })
+    } else{
+      this.appService.updateMember()
+    }
+
     this.goBackToSummary()
 
   }

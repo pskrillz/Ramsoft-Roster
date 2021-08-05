@@ -25,6 +25,7 @@ export class MembersComponent implements OnInit {
   editMember(member){
     this.goToAddMemberForm()
     this.appService.currMember = member;
+   // this.appService.currMemberId = memberId;
   }
 
   deleteMemberById(id: number) {
