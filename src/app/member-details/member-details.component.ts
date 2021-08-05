@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AppService } from '../app.service';
 import { Router } from '@angular/router';
 
@@ -20,10 +20,13 @@ export interface Member {
 export class MemberDetailsComponent implements OnInit, OnChanges {
   memberModel: Member;
   memberForm: FormGroup;
+  firstName: FormControl;
   submitted = false;
   alertType: String;
   alertMessage: String;
   teams: any [];
+
+  currMember;
 
   constructor(
     private fb: FormBuilder, 
@@ -69,6 +72,19 @@ export class MemberDetailsComponent implements OnInit, OnChanges {
       .subscribe(res => {
         this.teams = res;
       });
+
+      if(this.appService.currMember){
+        this.currMember = this.appService.currMember
+        console.log(this.currMember)
+        this.memberForm.setValue({
+          firstName: this.currMember.firstName,
+          lastName: this.currMember.lastName,
+          jobTitle: this.currMember.jobTitle,
+          team: this.currMember.team,
+          status: this.currMember.status
+        });
+    
+      }
   }
 
   ngOnChanges() {

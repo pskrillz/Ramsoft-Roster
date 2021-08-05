@@ -22,6 +22,11 @@ export class MembersComponent implements OnInit {
 
   editMemberById(id: number) {}
 
+  editMember(member){
+    this.goToAddMemberForm()
+    this.appService.currMember = member;
+  }
+
   deleteMemberById(id: number) {
     this.appService.deleteMember(id).subscribe(res => {
       this.loadTable()

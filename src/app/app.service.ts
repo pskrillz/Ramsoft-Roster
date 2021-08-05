@@ -12,6 +12,8 @@ export class AppService {
   // home = "http://localhost:3000"
   username: string;
 
+  currMember;
+
   constructor(private http: HttpClient) {}
 
   // Returns all members
