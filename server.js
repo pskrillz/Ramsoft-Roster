@@ -69,6 +69,15 @@ app.delete('/api/deleteMember/:id', (req, res) => {
   request.delete(`http://localhost:3000/members/${req.params.id}`, (err, response, body) => {
     if (response.statusCode <= 500) {
       res.send(response)
+    }
+  });
+});
+
+//Update Member
+app.patch('/api/updateMember/:id', (req, res) => {
+  request.patch(`http://localhost:3000/members/${req.params.id}`, { json: req.body }, (err, response, body) => {
+    if (response.statusCode <= 500) {
+      res.send(response)
       // console.log("great")
       // TODO: FIXIT: shows 404 in terminal but response comes back 200 with just a empty bracket
       // better handling of error but at least it shows the code

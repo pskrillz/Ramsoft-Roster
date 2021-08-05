@@ -22,10 +22,11 @@ export class MembersComponent implements OnInit {
 
   editMemberById(id: number) {}
 
-  editMember(member){
+  editMember(member, memberId){
     this.goToAddMemberForm()
     this.appService.currMember = member;
-   // this.appService.currMemberId = memberId;
+    console.log(member)
+    this.appService.currMemberId = memberId;
   }
 
   deleteMemberById(id: number) {

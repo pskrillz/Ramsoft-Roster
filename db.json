@@ -1,11 +1,11 @@
 {
   "members": [
     {
-      "firstName": "2",
+      "firstName": "2G",
       "lastName": "2",
       "jobTitle": "2",
-      "team": "",
-      "status": "",
+      "team": "Formula 1 - Car 77",
+      "status": "Inactive",
       "id": 2
     },
     {
@@ -13,8 +13,16 @@
       "lastName": "asdf",
       "jobTitle": "sadf",
       "team": "Formula 1 - Car 77",
-      "status": "",
+      "status": "Inactive",
       "id": 3
+    },
+    {
+      "firstName": "asdf",
+      "lastName": "asdf",
+      "jobTitle": "sadf",
+      "team": "Formula 1 - Car 8",
+      "status": "Active",
+      "id": 5
     }
   ],
   "teams": [

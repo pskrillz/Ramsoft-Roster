@@ -10,7 +10,7 @@ export interface Member {
   jobTitle: string;
   team: string;
   status: string;
-  memberId: number;
+ // memberId: number;
 }
 
 @Component({
@@ -101,7 +101,9 @@ export class MemberDetailsComponent implements OnInit, OnChanges {
         console.log(res)
       })
     } else{
-      this.appService.updateMember()
+      this.appService.updateMember(this.memberModel, this.appService.currMemberId).subscribe(res => {
+        console.log(res)
+      })
     }
 
     this.goBackToSummary()
@@ -110,6 +112,7 @@ export class MemberDetailsComponent implements OnInit, OnChanges {
 
   goBackToSummary(){
     this.router.navigate(['/members']);
+    this.appService.currMember = null;
   }
 
 

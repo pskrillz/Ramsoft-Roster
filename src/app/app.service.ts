@@ -13,6 +13,7 @@ export class AppService {
   username: string;
 
   currMember;
+  currMemberId;
   
 
   constructor(private http: HttpClient) {}
@@ -28,9 +29,9 @@ export class AppService {
     this.username = name;
   }
 
-  updateMember(memberForm: Member){
+  updateMember(memberForm: Member, currMemberId){
     return this.http
-    .patch(`${this.api}/updateMember/${memberForm.memberId}`, memberForm)
+    .patch(`${this.api}/updateMember/${currMemberId}`, memberForm)
     .pipe(catchError(this.handleError));
   }
 
