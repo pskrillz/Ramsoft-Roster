@@ -14,7 +14,10 @@ export class MembersComponent implements OnInit {
 
   ngOnInit() {
     this.loadTable()
+   // this.router.navigate(['/members'])
+   
   }
+
 
   goToAddMemberForm() {
     this.router.navigate(['/add-member'])
