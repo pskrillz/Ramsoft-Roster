@@ -35,35 +35,7 @@
           />
         </div>
       </div>
-      <br />
-
-      <div class="row">
-        <div class="col-md-6 invalid-alert"
-        *ngIf="memberForm.get('firstName').errors &&
-              (memberForm.get('firstName').dirty ||
-              memberForm.get('firstName').touched)">
-        <div *ngIf="memberForm.get('firstName').errors.required">
-          First Name is required
-        </div>
-        <div *ngIf="memberForm.get('firstName').errors.minlength">
-          Must be at least 3 chars long
-        </div>
-        <br/>   
-        </div>
-        <div class="col-md-6 invalid-alert"
-        *ngIf="memberForm.get('lastName').errors &&
-              (memberForm.get('lastName').dirty ||
-              memberForm.get('lastName').touched)">
-        <div *ngIf="memberForm.get('lastName').errors.required">
-          First Name is required
-        </div>
-        <div *ngIf="memberForm.get('lastName').errors.minlength">
-          Must be at least 3 chars long
-        </div>
-        <br/>   
-        </div>
-      </div>        
-   
+  
 
 
       <div class="row">
@@ -90,7 +62,47 @@
         </div>
       </div>
 
+    <div class="row">
+      <div class="col-md-6 invalid-alert"
+      *ngIf="memberForm.get('firstName').errors &&
+            (memberForm.get('firstName').dirty ||
+            memberForm.get('firstName').touched)">
+      <div *ngIf="memberForm.get('firstName').errors.required">
+        First Name is required
+      </div>
+      <div *ngIf="memberForm.get('firstName').errors.minlength">
+        First Name must be at least 3 chars long
+      </div>
+      </div>
       
+      <div class="col-md-6 invalid-alert"
+      *ngIf="memberForm.get('lastName').errors &&
+            (memberForm.get('lastName').dirty ||
+            memberForm.get('lastName').touched)">
+      <div *ngIf="memberForm.get('lastName').errors.required">
+        Last Name is required
+      </div>
+      <div *ngIf="memberForm.get('lastName').errors.minlength">
+        Last Name must be at least 3 chars long
+      </div>
+ 
+      </div>
+
+
+      <div class="col-md-6 invalid-alert"
+      *ngIf="memberForm.get('jobTitle').errors &&
+            (memberForm.get('jobTitle').dirty ||
+            memberForm.get('jobTitle').touched)">
+      <div *ngIf="memberForm.get('jobTitle').errors.required">
+        Job Title is required
+      </div>
+      <div *ngIf="memberForm.get('jobTitle').errors.minlength">
+        Job Title must be at least 3 chars long
+      </div>
+      <br/>   
+      </div>
+    </div>        
+
    
       <br />
       <div class="form-group col-md-6">
@@ -109,6 +121,11 @@
         </div>
       </div>
     </div>
+
+
+
+
+ 
 
     <!--Disable if form is invalid TODO-->
     <button class="btn btn-warning" (click)="goBackToSummary()"> 
