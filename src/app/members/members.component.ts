@@ -13,9 +13,11 @@ export class MembersComponent implements OnInit {
   constructor(public appService: AppService, private router: Router) {}
 
   ngOnInit() {
-    this.loadTable()
-   // this.router.navigate(['/members'])
-   
+    this.loadTable();
+  }
+
+  ngAfterViewInit(){
+    this.loadTable();
   }
 
 
