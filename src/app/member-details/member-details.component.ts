@@ -38,18 +38,21 @@ export class MemberDetailsComponent implements OnInit, OnChanges {
           '',
           Validators.compose([
             Validators.required,
+            Validators.minLength(4)
           ]),
         ],
         lastName: [
           '',
           Validators.compose([
             Validators.required,
+            Validators.minLength(4)
           ]),
         ],
         jobTitle: [
           '',
           Validators.compose([
             Validators.required,
+            Validators.minLength(4)
           ]),
         ],
         team: [
