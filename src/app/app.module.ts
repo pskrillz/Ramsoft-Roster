@@ -13,6 +13,7 @@ import { BannerComponent } from './banner/banner.component';
 import { MemberDetailsComponent } from './member-details/member-details.component';
 import { MembersComponent } from './members/members.component';
 import { LoginComponent } from './login/login.component';
+import { LoggedInGuard } from './logged-in.guard';
 
 const ROUTES = [
   {
@@ -22,15 +23,17 @@ const ROUTES = [
   },
   {
     path: 'members',
-    component: MembersComponent
+    component: MembersComponent,
+    canActivate: [LoggedInGuard]
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'add-member',
-    component: MemberDetailsComponent
+    component: MemberDetailsComponent,
+    canActivate: [LoggedInGuard]
   }
 ];
 
