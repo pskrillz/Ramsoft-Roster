@@ -58,18 +58,7 @@ app.get('/api/teams', (req, res) => {
   });
 });
 
-
-
-
-// // Add Member
-// app.post('/api/addMember', (req, res) => {
-//     request.post('http://localhost:3000/members', { json: req.body }, (err, response, body) => {
-//       if (response.statusCode <= 500) {
-//         res.send(response);
-//       }
-//     });
-//   });
-
+// Add member with validation
   app.post('/api/addMember', [
     check('firstName').isString(),
     check('firstName').isLength({
@@ -118,7 +107,7 @@ app.delete('/api/deleteMember/:id', (req, res) => {
   });
 });
 
-//Update Member
+//Update Member with validation
 app.patch('/api/updateMember/:id', 
 [
     check('firstName').isString(),
