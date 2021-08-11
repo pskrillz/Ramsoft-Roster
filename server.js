@@ -123,11 +123,11 @@ app.patch('/api/updateMember/:id',
 [
     check('firstName').isString(),
     check('firstName').isLength({
-        min: 4
+        min: 2
     }),
     check('lastName').isString(),
         check('lastName').isLength({
-        min: 4
+        min: 2
     }),
     check('jobTitle').isString(),
         check('jobTitle').isLength({
