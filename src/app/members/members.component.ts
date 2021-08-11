@@ -13,8 +13,13 @@ export class MembersComponent implements OnInit {
   constructor(public appService: AppService, private router: Router) {}
 
   ngOnInit() {
-    this.loadTable()
+    this.loadTable();
   }
+
+  ngAfterViewInit(){
+    this.loadTable();
+  }
+
 
   goToAddMemberForm() {
     this.router.navigate(['/add-member'])
