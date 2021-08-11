@@ -3,13 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Member } from '../app/member-details/member-details.component'
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
-  api = 'http://localhost:8000/api';
-  // home = "http://localhost:3000"
+  api = environment.url;
   username: string;
 
   currMember;
