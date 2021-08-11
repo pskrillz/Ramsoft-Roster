@@ -7,7 +7,7 @@ const path = require('path');
 var xssFilter = require('x-xss-protection');
 var nosniff = require('dont-sniff-mimetype');
 const request = require('request');
-const { body, validationResult } = require('express-validator');
+const { body, check, validationResult } = require('express-validator');
 const { validateLocaleAndSetLanguage } = require('typescript');
 
 const app = express();
@@ -61,30 +61,42 @@ app.get('/api/teams', (req, res) => {
 
 
 
-// Add Member
-app.post('/api/addMember', (req, res) => {
-    request.post('http://localhost:3000/members', { json: req.body }, (err, response, body) => {
-      if (response.statusCode <= 500) {
-        res.send(response);
-      }
-    });
-  });
+// // Add Member
+// app.post('/api/addMember', (req, res) => {
+//     request.post('http://localhost:3000/members', { json: req.body }, (err, response, body) => {
+//       if (response.statusCode <= 500) {
+//         res.send(response);
+//       }
+//     });
+//   });
 
   app.post('/api/addMember', [
     check('firstName').isString(),
-    // check('firstName').isLength({
-    //     min: 4
-    // }),
+    check('firstName').isLength({
+        min: 4
+    }),
     check('lastName').isString(),
+        check('lastName').isLength({
+        min: 4
+    }),
     check('jobTitle').isString(),
+        check('jobTitle').isLength({
+        min: 4
+    }),
     check('team').isString(),
+        check('team').isLength({
+        min: 4
+    }),
     check('status').custom((value)=>{
       if(value === 'Active' || value === 'Inactive' ){
         return true
       } else {
         return false
       }
-    })
+    }),
+        check('status').isLength({
+        min: 4
+    }),
   ], (req, res) => {
     const errors = validationResult(req);
     if(!errors.isEmpty()){
@@ -107,13 +119,45 @@ app.delete('/api/deleteMember/:id', (req, res) => {
 });
 
 //Update Member
-app.patch('/api/updateMember/:id', (req, res) => {
-  request.patch(`http://localhost:3000/members/${req.params.id}`, { json: req.body }, (err, response, body) => {
-    if (response.statusCode <= 500) {
-      res.send(response)
+app.patch('/api/updateMember/:id', 
+[
+    check('firstName').isString(),
+    check('firstName').isLength({
+        min: 4
+    }),
+    check('lastName').isString(),
+        check('lastName').isLength({
+        min: 4
+    }),
+    check('jobTitle').isString(),
+        check('jobTitle').isLength({
+        min: 4
+    }),
+    check('team').isString(),
+        check('team').isLength({
+        min: 4
+    }),
+    check('status').custom((value)=>{
+      if(value === 'Active' || value === 'Inactive' ){
+        return true
+      } else {
+        return false
+      }
+    }),
+        check('status').isLength({
+        min: 4
+    }),
+  ], (req, res) => {
+    const errors = validationResult(req);
+    if(!errors.isEmpty()){
+      return res.status(422).json({errors:errors.array()})
     }
-  });
-});
+    request.patch(`http://localhost:3000/members/${req.params.id}`, {json: req.body}, (err, response, body) => {
+      if (response.statusCode <= 500) {
+        res.send(response);
+      }
+    });
+})
 
 
 
