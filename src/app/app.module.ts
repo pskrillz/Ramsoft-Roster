@@ -14,6 +14,8 @@ import { MemberDetailsComponent } from './member-details/member-details.componen
 import { MembersComponent } from './members/members.component';
 import { LoginComponent } from './login/login.component';
 import { LoggedInGuard } from './logged-in.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 
 const ROUTES = [
   {
@@ -45,7 +47,10 @@ const ROUTES = [
     RouterModule.forRoot(ROUTES, { useHash: true }),
     ReactiveFormsModule,
     // FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
+
   ],
   providers: [AppService, HttpClient],
   bootstrap: [AppComponent]

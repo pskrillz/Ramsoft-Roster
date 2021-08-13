@@ -1,5 +1,10 @@
 <div class="container-fluid">
   <button id="addMemberButton" class="btn btn-primary pull-right" (click)="goToAddMemberForm()">Add Member</button>
+  <mat-spinner 
+  style="margin: 0 auto; position: relative; right: 40px;"
+  *ngIf="isLoading">
+  Loading
+</mat-spinner>
   <table class="table">
     <thead>
       <tr>
