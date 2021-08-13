@@ -50,22 +50,22 @@ export class MembersComponent implements OnInit {
   }
 
   loadTable = new Promise<void>((resolve, reject) => {
-    setTimeout(() => {
+     setTimeout(() => {
       this.getMembers()
 
       if (this.members.length) {
+        this.isLoading = false;
         resolve()
       } else {
         reject('error')
       }
       
-    }, 5000);
+     }, 1000);
     
   })
 
   asyncLoadTable(){
     this.loadTable.then(() =>{
-      this.isLoading = false;
       console.log("resolved")
     }).catch((error)=>{
       console.log("reject", error)

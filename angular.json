@@ -75,6 +75,9 @@
           "configurations": {
             "production": {
               "browserTarget": "Ramsoft-racing:build:production"
+            },
+            "demo": {
+              "browserTarget": "Ramsoft-racing:build:demo"
             }
           }
         },
