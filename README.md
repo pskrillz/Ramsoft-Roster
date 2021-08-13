@@ -1,6 +1,6 @@
 # Ramsoft Racing
-
 Welcome to the Ramsoft Racing Team Trials. Ramsoft Racing prides itself as being one of the top competitors in many racing series including Formula 1 and the World Endurance Championship.  Competing in multiple categories requires many personnel and we are having trouble keeping track of the roster of each team.  We have already began to construct a mini-application which currently only retrieves members of the organization.  This is where you come in.  
+
 
 ## Requirements
 
