@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  url: 'https://Ramsoft-api.herokuapp.com/api',
+  url: 'https://softrams-api.herokuapp.com/api',
   environmentName: "demo"
 };
