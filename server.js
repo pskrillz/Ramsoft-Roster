@@ -32,7 +32,7 @@ app.use(
 );
 
 app.use(
-  express.static(path.join(__dirname, 'dist/softrams-racing'), {
+  express.static(path.join(__dirname, 'dist/Ramsoft-racing'), {
     etag: false
   })
 );
@@ -153,7 +153,7 @@ app.patch('/api/updateMember/:id',
 
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/softrams-racing/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/Ramsoft-racing/index.html'));
 });
 
 app.listen('8000', () => {

@@ -19,9 +19,9 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
-  it(`should have as title 'softrams-racing'`, async(() => {
+  it(`should have as title 'Ramsoft-racing'`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('softrams-racing');
+    expect(app.title).toEqual('Ramsoft-racing');
   }));
 });

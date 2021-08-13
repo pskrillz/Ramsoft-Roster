@@ -1,6 +1,6 @@
-# Softrams Racing
+# Ramsoft Racing
+Welcome to the Ramsoft Racing Team Trials. Ramsoft Racing prides itself as being one of the top competitors in many racing series including Formula 1 and the World Endurance Championship.  Competing in multiple categories requires many personnel and we are having trouble keeping track of the roster of each team.  We have already began to construct a mini-application which currently only retrieves members of the organization.  This is where you come in.  
 
-Welcome to the Softrams Racing Team Trials where you'll be tested on your development skills. Softrams Racing prides itself as being one of the top competitors in many racing series including Formula 1 and the World Endurance Championship.  Competing in multiple categories requires many personnel and we are having trouble keeping track of the roster of each team.  We have already began to construct a mini-application which currently only retrieves members of the organization.  This is where you come in.  Softrams Racing needs you to add a feature to this application that allows us to add new members to our organization, and most importantly to a specific team.  You have been provided the application source code and your job is to create this feature.  Softrams Racing looks forward to seeing what you can accomplish!  Good luck!
 
 ## Requirements
 
@@ -27,7 +27,7 @@ Member properties
 * The member detail form should have client-side validation
 * The member detail form should have server-side validation
 
-_Remember this simulates a mini "Full-Stack" web application so be sure to develop for both server and client_
+_Remember this is a "Full-Stack" web application so be sure to develop for both server and client_
 
 ### On Completion
 * Create a Zip from the updated source code and send it to your point of contact for review
