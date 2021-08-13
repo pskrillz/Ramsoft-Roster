@@ -8,16 +8,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./members.component.css']
 })
 export class MembersComponent implements OnInit {
-  members = [];
+
 
   constructor(public appService: AppService, private router: Router) {}
 
   ngOnInit() {
-    this.loadTable();
+    this.asyncLoadTable()
   }
 
   ngAfterViewInit(){
-    this.loadTable();
+    this.getMembers();
   }
 
 
@@ -36,14 +36,41 @@ export class MembersComponent implements OnInit {
 
   deleteMemberById(id: number) {
     this.appService.deleteMember(id).subscribe(res => {
-      this.loadTable()
+      this.getMembers()
       console.log(res)
     })
   }
 
+  members = [];
+  isLoading: boolean = true;
 
-  loadTable(){
+
+  getMembers(){
     this.appService.getMembers().subscribe(members => (this.members = members));
   }
+
+  loadTable = new Promise<void>((resolve, reject) => {
+    setTimeout(() => {
+      this.getMembers()
+
+      if (this.members.length) {
+        resolve()
+      } else {
+        reject('error')
+      }
+      
+    }, 5000);
+    
+  })
+
+  asyncLoadTable(){
+    this.loadTable.then(() =>{
+      this.isLoading = false;
+      console.log("resolved")
+    }).catch((error)=>{
+      console.log("reject", error)
+    })
+  }
+
 
 }
