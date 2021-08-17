@@ -50,14 +50,15 @@ export class MembersComponent implements OnInit {
   }
 
   loadTable = new Promise<void>((resolve, reject) => {
-     setTimeout(() => {
-      this.getMembers()
+    this.getMembers()
+    setTimeout(() => {
+      
 
       if (this.members.length) {
         this.isLoading = false;
         resolve()
       } else {
-        reject('error')
+        reject('Took too Long')
       }
       
      }, 1000);
