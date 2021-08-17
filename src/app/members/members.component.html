@@ -1,10 +1,14 @@
 <div class="container-fluid">
   <button id="addMemberButton" class="btn btn-primary pull-right" (click)="goToAddMemberForm()">Add Member</button>
-  <mat-spinner 
-  style="margin: 0 auto; position: relative; right: 40px;"
-  *ngIf="isLoading">
-  Loading
-</mat-spinner>
+  <div *ngIf="isLoading">
+    <mat-spinner 
+    style="margin: 0 auto; position: relative; right: 40px;"
+    >
+    Loading
+    </mat-spinner>
+    <p style="text-align: center; position: relative; right: 20px; color:blue"
+   >Loading data...please wait</p>
+  </div>
   <table class="table">
     <thead>
       <tr>

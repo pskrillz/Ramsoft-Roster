@@ -13,7 +13,8 @@ export class MembersComponent implements OnInit {
   constructor(public appService: AppService, private router: Router) {}
 
   ngOnInit() {
-    this.asyncLoadTable()
+   // this.asyncLoadTable()
+   this.getMembers()
   }
 
   ngAfterViewInit(){
@@ -46,31 +47,10 @@ export class MembersComponent implements OnInit {
 
 
   getMembers(){
-    this.appService.getMembers().subscribe(members => (this.members = members));
-  }
-
-  loadTable = new Promise<void>((resolve, reject) => {
-    this.getMembers()
-    setTimeout(() => {
-      
-
-      if (this.members.length) {
-        this.isLoading = false;
-        resolve()
-      } else {
-        reject('Took too Long')
-      }
-      
-     }, 1000);
-    
-  })
-
-  asyncLoadTable(){
-    this.loadTable.then(() =>{
-      console.log("resolved")
-    }).catch((error)=>{
-      console.log("reject", error)
-    })
+    this.appService.getMembers().subscribe(members => { //.subscribe already calls a callback no need for anything fancy 
+      this.members = members
+      this.isLoading = false;
+    });
   }
 
 
