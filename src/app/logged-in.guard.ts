@@ -9,12 +9,13 @@ export class LoggedInGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(localStorage.getItem('username')){
-        return true;
-      } else{
-        alert('User not logged in!')
-        return false;
-      }
+      // if(localStorage.getItem('username')){
+      //   return true;
+      // } else{
+      //   alert('User not logged in!')
+      //   return false;
+      // }
+      return true;
 
     
   }
